@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { QuizContext } from "../context/quizContext";
 
-function Questions({ question, dispatch, answer }) {
-	console.log(question);
+function Questions() {
+	const quizCtx = useContext(QuizContext);
+	const { questions, dispatch, answer, index } = quizCtx;
+
+	const question = questions[index];
 	const hasAnswerd = answer !== null;
 	return (
 		<div>
